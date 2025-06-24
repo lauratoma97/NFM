@@ -1,10 +1,12 @@
 using FluentValidation;
+using Microsoft.EntityFrameworkCore;
 using NFM.Business.Validators;
 using NFM.Business.ModelDTOs;
 using NFM.Business.Services.Contracts;
 using NFM.Business.Services.Implementations;
 using NFM.Domain.Repositories;
 using NFM.Business.ModelMapping;
+using NFM.Domain.Configuration;
 using NFM.Domain.Context;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,7 +17,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<MyDbContext>();
+builder.Services.AddAppSettings(builder.Configuration);
+
+builder.Services.AddDbContext<MyDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 
 builder.Services.AddScoped<IProductService, ProductService>();

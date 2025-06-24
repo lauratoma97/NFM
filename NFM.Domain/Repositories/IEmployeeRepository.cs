@@ -6,7 +6,7 @@ namespace NFM.Domain.Repositories
     {
         Task<List<Employee>> Get();
 
-        Task<Employee> GetById(long id);
+        Task<Employee?> GetById(long id);
 
         Task<long> Add(Employee employee);
 

@@ -18,7 +18,7 @@ namespace NFM.Domain.Repositories
             return await _dbContext.Employees.ToListAsync();
         }
 
-        public async Task<Employee> GetById(long id)
+        public async Task<Employee?> GetById(long id)
         {
             return (await _dbContext.Employees.FindAsync(id))!;
         }

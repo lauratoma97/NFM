@@ -19,7 +19,7 @@ namespace NFM.WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetEmployees()
+        public async Task<ActionResult<List<EmployeeDto>>> GetEmployees()
         {
             var employees = await _employeeService.GetEmployees();
            
@@ -27,7 +27,7 @@ namespace NFM.WebApi.Controllers
         }
 
         [HttpGet("{id}", Name = nameof(GetEmployeeById))]
-        public async Task<IActionResult> GetEmployeeById(long id)
+        public async Task<ActionResult<EmployeeDto>> GetEmployeeById(long id)
         {
             var employee = await _employeeService.GetEmployeeById(id);
             if (employee == null)

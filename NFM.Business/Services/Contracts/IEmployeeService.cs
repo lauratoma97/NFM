@@ -6,7 +6,7 @@ namespace NFM.Business.Services.Contracts
     {
         public Task<List<EmployeeDto>> GetEmployees();
 
-        public Task<EmployeeDto> GetEmployeeById(long id);
+        public Task<EmployeeDto?> GetEmployeeById(long id);
 
         public Task<long> CreateEmployee(EmployeeDto employeeDto);
 

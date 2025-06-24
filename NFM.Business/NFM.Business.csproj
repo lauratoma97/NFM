@@ -12,6 +12,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\NFM.Data\NFM.Domain.csproj" />
+		<ProjectReference Include="..\NFM.Domain\NFM.Domain.csproj" />
 	</ItemGroup>
 </Project>

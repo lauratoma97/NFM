@@ -23,7 +23,7 @@ namespace NFM.Business.Services.Implementations
             return employeeEntities.Select(e => _mapper.Map<EmployeeDto>(e)).ToList();
         }
 
-        public async Task<EmployeeDto> GetEmployeeById(long id)
+        public async Task<EmployeeDto?> GetEmployeeById(long id)
         {
             var employee = await _employeeRepository.GetById(id);
             if (employee == null)
