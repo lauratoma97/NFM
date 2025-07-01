@@ -1,0 +1,6 @@
+﻿{
+  "SqlServerConnectionString": "Server=localhost;Database=DemoIoc;Trusted_Connection=True;TrustServerCertificate=true",
+  "SqlLiteDbFile": "D:\\1.WORK2\\Summer-practice\\IOC-Example-1\\IOC-Example-1\\CreateDatabasesDemo\\demo-sqlite.db",
+  //"DatabaseSource": "SqlServer"
+  "DatabaseSource": "SqlLite"
+}

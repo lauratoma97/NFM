@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RunnerNoIoc", "IOC-Example-1\RunnerNoIoc.csproj", "{78AA8500-D3ED-41BB-816A-DAACD945CEF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateDatabasesDemo", "CreateDatabasesDemo\CreateDatabasesDemo.csproj", "{70962724-2112-4F15-A1E6-A660729E9544}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ioc", "Ioc", "{3463C5B9-BDF4-47D1-97A9-54CFADE4EBD8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NoIoc", "NoIoc", "{74369654-A98C-4049-949F-778703AC3A36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Sqlite", "Infrastructure.Sqlite\Infrastructure.Sqlite.csproj", "{41B3804E-CA1F-4966-B68B-5AA6961C2A16}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.SqlServer", "Infrastructure.SqlServer\Infrastructure.SqlServer.csproj", "{07D54F67-2B3B-49BF-967D-C431F5DF3FB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RunnerIoc", "RunnerGreetings\RunnerIoc.csproj", "{CAC23D98-A3A5-46D8-8F11-03D27DA983B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{F2FF2E23-3BD6-4A6B-BC7B-670FBD001E73}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{78AA8500-D3ED-41BB-816A-DAACD945CEF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78AA8500-D3ED-41BB-816A-DAACD945CEF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78AA8500-D3ED-41BB-816A-DAACD945CEF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78AA8500-D3ED-41BB-816A-DAACD945CEF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70962724-2112-4F15-A1E6-A660729E9544}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70962724-2112-4F15-A1E6-A660729E9544}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70962724-2112-4F15-A1E6-A660729E9544}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70962724-2112-4F15-A1E6-A660729E9544}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41B3804E-CA1F-4966-B68B-5AA6961C2A16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41B3804E-CA1F-4966-B68B-5AA6961C2A16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41B3804E-CA1F-4966-B68B-5AA6961C2A16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41B3804E-CA1F-4966-B68B-5AA6961C2A16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07D54F67-2B3B-49BF-967D-C431F5DF3FB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07D54F67-2B3B-49BF-967D-C431F5DF3FB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07D54F67-2B3B-49BF-967D-C431F5DF3FB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07D54F67-2B3B-49BF-967D-C431F5DF3FB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAC23D98-A3A5-46D8-8F11-03D27DA983B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAC23D98-A3A5-46D8-8F11-03D27DA983B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAC23D98-A3A5-46D8-8F11-03D27DA983B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAC23D98-A3A5-46D8-8F11-03D27DA983B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2FF2E23-3BD6-4A6B-BC7B-670FBD001E73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2FF2E23-3BD6-4A6B-BC7B-670FBD001E73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2FF2E23-3BD6-4A6B-BC7B-670FBD001E73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2FF2E23-3BD6-4A6B-BC7B-670FBD001E73}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{78AA8500-D3ED-41BB-816A-DAACD945CEF1} = {74369654-A98C-4049-949F-778703AC3A36}
+		{41B3804E-CA1F-4966-B68B-5AA6961C2A16} = {3463C5B9-BDF4-47D1-97A9-54CFADE4EBD8}
+		{07D54F67-2B3B-49BF-967D-C431F5DF3FB2} = {3463C5B9-BDF4-47D1-97A9-54CFADE4EBD8}
+		{CAC23D98-A3A5-46D8-8F11-03D27DA983B2} = {3463C5B9-BDF4-47D1-97A9-54CFADE4EBD8}
+		{F2FF2E23-3BD6-4A6B-BC7B-670FBD001E73} = {3463C5B9-BDF4-47D1-97A9-54CFADE4EBD8}
+	EndGlobalSection
+EndGlobal
