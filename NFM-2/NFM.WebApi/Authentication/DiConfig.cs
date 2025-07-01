@@ -14,6 +14,7 @@ public static class DiConfig
         var jwtAppSettingOptions = configuration.GetSection("JwtOptions").Get<JwtOptionsSettings>();
         var signingKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(jwtAppSettingOptions.SigningKey));
 
+        // configure database link to an IdentityUser using Entity Framework
         services.AddIdentityCore<IdentityUser>()
             .AddRoles<IdentityRole>()
             .AddTokenProvider<DataProtectorTokenProvider<IdentityUser>>("nfm-provider")
@@ -22,6 +23,8 @@ public static class DiConfig
 
         services.Configure<IdentityOptions>(options =>
         {
+            // NOTE: IOptions<IdentityOptions> is available for dependency injection, and it's being used inside the Identity framework or other frameworks that depend on options
+            // configure our own preferred policies
             options.Password.RequireDigit = false;
             options.Password.RequireLowercase = false;
             options.Password.RequireNonAlphanumeric = false;
@@ -59,6 +62,8 @@ public static class DiConfig
                 };
             });
 
+        // NOTE: IOptions<JwtOptions> is available for dependency injection (Eg: used inside AuthController)
+        // they inject configured values necessary for JWT token generation
         services.Configure<JwtOptions>(options =>
         {
             options.Issuer = jwtAppSettingOptions.Issuer;
