@@ -27,7 +27,7 @@ namespace NFM.Domain.Repositories
         {
             await _dbContext.Employees.AddAsync(employee);
             await _dbContext.SaveChangesAsync();
-            
+
             return employee.Id;
         }
 
@@ -44,6 +44,13 @@ namespace NFM.Domain.Repositories
         public async Task<bool> CnpAlreadyExist(string cnp)
         {
             return await _dbContext.Employees.AnyAsync(e => e.CNP == cnp);
+        }
+
+        public async Task Update(Employee employee)
+        {
+
+            _dbContext.Employees.Update(employee);
+            await _dbContext.SaveChangesAsync();
         }
     }
 }

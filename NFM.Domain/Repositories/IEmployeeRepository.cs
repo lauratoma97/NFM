@@ -13,5 +13,8 @@ namespace NFM.Domain.Repositories
         Task Delete(long id);
 
         Task<bool> CnpAlreadyExist(string cnp);
+
+        Task Update(Employee employee);
+
     }
 }

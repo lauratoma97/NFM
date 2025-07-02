@@ -47,6 +47,23 @@ namespace NFM.Business.Services.Implementations
             return 0;
         }
 
+        public async Task UpdateEmployee(EmployeeDto employeeDto)
+        {
+            if (employeeDto == null)
+            {
+                throw new ArgumentNullException(nameof(employeeDto));
+            }
+
+            var existingEmployee = await _employeeRepository.GetById(employeeDto.Id);
+            if (existingEmployee == null)
+            {
+                throw new InvalidOperationException($"Employee with Id {employeeDto.Id} not found.");
+            }
+
+            _mapper.Map(employeeDto, existingEmployee);
+            await _employeeRepository.Update(existingEmployee);
+        }
+
         public async Task DeleteEmployee(long id)
         {
             await _employeeRepository.Delete(id);

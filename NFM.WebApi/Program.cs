@@ -34,6 +34,8 @@ builder.Services.AddScoped<IValidator<ProductDto>, ProductValidator>();
 builder.Services.AddScoped<IValidator<CreateProductDto>, CreateProductValidator>();
 builder.Services.AddScoped<IValidator<EmployeeDto>, EmployeeValidator>();
 
+builder.Services.AddScoped<IPhotoUploadService, PhotoUploadService>();
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -47,5 +49,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseStaticFiles();
 
 app.Run();

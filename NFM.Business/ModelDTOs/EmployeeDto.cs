@@ -2,10 +2,12 @@
 {
     public class EmployeeDto
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         public string CNP { get; set; }
 
         public string Name { get; set; }
+
+        public string PhotoPath { get; set; }
     }
 }

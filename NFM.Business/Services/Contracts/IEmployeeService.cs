@@ -11,5 +11,7 @@ namespace NFM.Business.Services.Contracts
         public Task<long> CreateEmployee(EmployeeDto employeeDto);
 
         public Task DeleteEmployee(long id);
+
+        public Task UpdateEmployee(EmployeeDto employeeDto);
     }
 }

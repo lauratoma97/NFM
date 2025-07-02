@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using NFM.Domain.Configuration;
 using NFM.Domain.Models;
 
 namespace NFM.Domain.Context

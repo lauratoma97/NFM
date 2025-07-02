@@ -10,11 +10,9 @@ namespace NFM.Business.ModelMapping
         {
             CreateMap<Product, ProductDto>(MemberList.Destination);
             CreateMap<Employee, EmployeeDto>(MemberList.Destination);
-
             CreateMap<ProductDto, Product>();
             CreateMap<CreateProductDto, Product>();
-            CreateMap<EmployeeDto, Employee>()
-                .ForMember(dest => dest.Id, opt => opt.Ignore());
+            CreateMap<EmployeeDto, Employee>();
         }
     }
 }
