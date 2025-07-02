@@ -6,9 +6,7 @@ using NFM.Domain.Models;
 namespace NFM.Domain.Context
 {
     public class MyDbContext : IdentityDbContext
-    {
-        public DbSet<Product> Products { get; set; }
-      
+    {      
         public DbSet<Employee> Employees { get; set; }
 
         public MyDbContext(DbContextOptions<MyDbContext> options)

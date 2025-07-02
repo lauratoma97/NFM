@@ -70,14 +70,10 @@ builder.Services.AddDbContext<MyDbContext>(options =>
 
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 
-builder.Services.AddScoped<IProductService, ProductService>();
-builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 
-builder.Services.AddScoped<IValidator<ProductDto>, ProductValidator>();
-builder.Services.AddScoped<IValidator<CreateProductDto>, CreateProductValidator>();
 builder.Services.AddScoped<IValidator<EmployeeDto>, EmployeeValidator>();
 
 builder.Services.AddScoped<AppSeeder>();
