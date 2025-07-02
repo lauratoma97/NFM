@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace NFM.Domain.DemoLifetime;
+namespace NFM.Business.DemoLifetimeServices;
 
 public static class DiConfig
 {

@@ -1,7 +1,6 @@
-﻿
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace NFM.Domain.Models.Dto;
+namespace NFM.Business.ModelDTOs;
 
 public class CreateUserRequest
 {

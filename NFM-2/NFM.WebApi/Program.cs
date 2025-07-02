@@ -12,7 +12,7 @@ using NFM.Domain.Context;
 using NFM.WebApi.Authentication;
 using Serilog;
 using Microsoft.OpenApi.Models;
-using NFM.Domain.DemoLifetime;
+using NFM.Business.DemoLifetimeServices;
 
 var builder = WebApplication.CreateBuilder(args);
 

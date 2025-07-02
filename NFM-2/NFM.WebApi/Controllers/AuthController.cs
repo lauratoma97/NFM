@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
+using NFM.Business.ModelDTOs;
 using NFM.Domain.Models;
-using NFM.Domain.Models.Dto;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 

@@ -1,4 +1,4 @@
-﻿namespace NFM.Domain.DemoLifetime;
+﻿namespace NFM.Business.DemoLifetimeServices;
 
 public class TransientB
 {
