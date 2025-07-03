@@ -13,6 +13,7 @@ namespace NFM.Business.ModelMapping
 
             CreateMap<ProductDto, Product>();
             CreateMap<CreateProductDto, Product>();
+            CreateMap<UpdateProductDto, Product>();
             CreateMap<EmployeeDto, Employee>()
                 .ForMember(dest => dest.Id, opt => opt.Ignore());
         }

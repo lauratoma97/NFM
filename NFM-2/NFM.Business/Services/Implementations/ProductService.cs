@@ -46,7 +46,7 @@ namespace NFM.Business.Services.Implementations
             return 0;
         }
 
-        public async Task UpdateProduct(ProductDto productDto)
+        public async Task UpdateProduct(UpdateProductDto productDto)
         {
             var productEntity = _mapper.Map<Product>(productDto);
             await _productRepository.Update(productEntity);

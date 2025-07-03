@@ -12,12 +12,14 @@ namespace NFM.WebApi.Controllers
         private readonly IProductService _productService;
         private readonly IValidator<ProductDto> _productValidator;
         private readonly IValidator<CreateProductDto> _createProductValidator;
+        private readonly IValidator<UpdateProductDto> _updateProductValidator;
 
-        public ProductController(IProductService productService, IValidator<ProductDto> productValidator, IValidator<CreateProductDto> createProductValidator)
+        public ProductController(IProductService productService, IValidator<ProductDto> productValidator, IValidator<CreateProductDto> createProductValidator, IValidator<UpdateProductDto> updateProductValidator)
         {
             _productService = productService;
             _productValidator = productValidator;
             _createProductValidator = createProductValidator;
+            _updateProductValidator = updateProductValidator;
         }
 
         [HttpGet]
@@ -53,9 +55,9 @@ namespace NFM.WebApi.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateProduct(long id, [FromBody] ProductDto product)
+        public async Task<IActionResult> UpdateProduct(long id, [FromBody] UpdateProductDto product)
         {
-            var validationResult = await _productValidator.ValidateAsync(product);
+            var validationResult = await _updateProductValidator.ValidateAsync(product);
             if (!validationResult.IsValid)
             {
                 return BadRequest(validationResult.Errors);

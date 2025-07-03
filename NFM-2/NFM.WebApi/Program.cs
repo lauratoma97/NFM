@@ -78,6 +78,7 @@ builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 
 builder.Services.AddScoped<IValidator<ProductDto>, ProductValidator>();
 builder.Services.AddScoped<IValidator<CreateProductDto>, CreateProductValidator>();
+builder.Services.AddScoped<IValidator<UpdateProductDto>, UpdateProductValidator>();
 builder.Services.AddScoped<IValidator<EmployeeDto>, EmployeeValidator>();
 
 builder.Services.AddScoped<AppSeeder>();
