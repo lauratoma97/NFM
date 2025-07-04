@@ -10,7 +10,7 @@ namespace NFM.Business.Services.Contracts
 
         public Task<long> CreateProduct(CreateProductDto productDto);
 
-        public Task UpdateProduct(UpdateProductDto productDto);
+        public Task UpdateProduct(ProductDto productDto);
 
         public Task DeleteProduct(long id);
     }
