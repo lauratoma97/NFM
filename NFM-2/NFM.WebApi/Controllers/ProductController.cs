@@ -21,9 +21,9 @@ namespace NFM.WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetProducts()
+        public async Task<IActionResult> GetProducts([FromQuery] ProductFilter filter)
         {
-            var products = await _productService.GetProducts();
+            var products = await _productService.GetProducts(filter);
             return Ok(products);
         }
 

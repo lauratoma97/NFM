@@ -4,7 +4,7 @@ namespace NFM.Domain.Repositories
 {
     public interface IProductRepository
     {
-        Task<List<Product>> Get();
+        IQueryable<Product> Get();
 
         Task<Product> GetById(long id);
 
