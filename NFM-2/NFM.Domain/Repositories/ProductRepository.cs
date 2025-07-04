@@ -31,9 +31,8 @@ namespace NFM.Domain.Repositories
             return product.Id;
         }
 
-        public async Task Update(Product product)
+        public async Task Update()
         {
-            _dbContext.Products.Update(product);
             await _dbContext.SaveChangesAsync();
         }
 

@@ -1,4 +1,5 @@
 ﻿using NFM.Business.ModelDTOs;
+using NFM.Domain.Models;
 
 namespace NFM.Business.Services.Contracts
 {
@@ -10,7 +11,9 @@ namespace NFM.Business.Services.Contracts
 
         public Task<long> CreateProduct(CreateProductDto productDto);
 
-        public Task UpdateProduct(ProductDto productDto);
+        public Task<Product?> GetProductEntityById(long id);
+
+        public Task UpdateProduct(Product existingProduct, ProductDto productDto);
 
         public Task DeleteProduct(long id);
     }

@@ -46,10 +46,21 @@ namespace NFM.Business.Services.Implementations
             return 0;
         }
 
-        public async Task UpdateProduct(ProductDto productDto)
+        public async Task<Product?> GetProductEntityById(long id)
         {
-            var productEntity = _mapper.Map<Product>(productDto);
-            await _productRepository.Update(productEntity);
+            return await _productRepository.GetById(id);
+        }
+
+        public async Task UpdateProduct(Product existingProduct, ProductDto productDto)
+        {
+            _mapper.Map(productDto, existingProduct);
+
+            // Alternatively, you can manually set properties if you prefer:
+            //existingProduct.Name = productDto.Name;
+            //existingProduct.Price = productDto.Price;
+            //existingProduct.Stock = productDto.Stock;
+
+            await _productRepository.Update();
         }
 
         public async Task DeleteProduct(long id)

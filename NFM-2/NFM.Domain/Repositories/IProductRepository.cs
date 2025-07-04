@@ -10,7 +10,7 @@ namespace NFM.Domain.Repositories
 
         Task<long> Add(Product product);
 
-        Task Update(Product product);
+        Task Update();
 
         Task Delete(long id);
 

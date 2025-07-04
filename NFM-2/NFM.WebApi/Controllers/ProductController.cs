@@ -53,21 +53,18 @@ namespace NFM.WebApi.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateProduct(long id, [FromBody] ProductDto product)
+        public async Task<IActionResult> UpdateProduct(long id, [FromBody] ProductDto productDto)
         {
-            var validationResult = await _productValidator.ValidateAsync(product);
+            var validationResult = await _productValidator.ValidateAsync(productDto);
             if (!validationResult.IsValid)
-            {
                 return BadRequest(validationResult.Errors);
-            }
-            var productById = await _productService.GetProductById(id);
-            if (productById == null)
-            {
-                return NotFound();
-            }
 
-            await _productService.UpdateProduct(product);
-            
+            var existingProduct = await _productService.GetProductEntityById(id);
+            if (existingProduct == null)
+                return NotFound();
+
+            await _productService.UpdateProduct(existingProduct, productDto);
+
             return NoContent();
         }
 
