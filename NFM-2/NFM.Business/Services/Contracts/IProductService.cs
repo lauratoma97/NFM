@@ -5,7 +5,7 @@ namespace NFM.Business.Services.Contracts
 {
     public interface IProductService
     {
-        public Task<List<ProductDto>> GetProducts();
+        public Task<List<ProductDto>> GetProducts(ProductFilter filter);
 
         public Task<ProductDto> GetProductById(long id);
 

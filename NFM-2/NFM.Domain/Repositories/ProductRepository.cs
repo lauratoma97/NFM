@@ -13,9 +13,9 @@ namespace NFM.Domain.Repositories
             _dbContext = dbContext;
         }
 
-        public async Task<List<Product>> Get()
+        public IQueryable<Product> Get()
         {
-            return await _dbContext.Products.ToListAsync();
+            return _dbContext.Products.AsQueryable();
         }
 
         public async Task<Product> GetById(long id)

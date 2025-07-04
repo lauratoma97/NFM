@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using NFM.Business.ModelDTOs;
 using NFM.Business.Services.Contracts;
 using NFM.Domain.Models;
@@ -17,10 +18,23 @@ namespace NFM.Business.Services.Implementations
             _mapper = mapper;
         }
 
-        public async Task<List<ProductDto>> GetProducts()
+        public async Task<List<ProductDto>> GetProducts(ProductFilter filter)
         {
-            var productEntities = await _productRepository.Get();
-            return productEntities.Select(product => _mapper.Map<ProductDto>(product)).ToList();
+            var query= _productRepository.Get();
+            if (filter.Name != null)
+            {
+                query = query.Where(p => p.Name.ToLower().Contains(filter.Name.ToLower()));
+            }
+
+            if (filter.MinPrice != null)
+            {
+                query = query.Where(p => p.Price >= filter.MinPrice);
+            }
+
+            query = query.Skip(filter.Skip ?? 0).Take(filter.Count ?? 10);
+            var listOfProducts = await query.ToListAsync();
+
+            return listOfProducts.Select(p => _mapper.Map<ProductDto>(p)).ToList();
         }
 
         public async Task<ProductDto> GetProductById(long id)
