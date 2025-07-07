@@ -4,6 +4,7 @@ using Centric.Finance.Infrastructure.Authorization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using NFM.Domain.Context;
+using NFM.Domain.Models;
 
 namespace NFM.WebApi.Authentication;
 
@@ -14,10 +15,10 @@ public static class DiConfig
         var jwtAppSettingOptions = configuration.GetSection("JwtOptions").Get<JwtOptionsSettings>();
         var signingKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(jwtAppSettingOptions.SigningKey));
 
-        // configure database link to an IdentityUser using Entity Framework
-        services.AddIdentityCore<IdentityUser>()
+        // configure database link to an IdentityUser -> MyApplicationUser using Entity Framework
+        services.AddIdentityCore<MyApplicationUser>()
             .AddRoles<IdentityRole>()
-            .AddTokenProvider<DataProtectorTokenProvider<IdentityUser>>("nfm-provider")
+            .AddTokenProvider<DataProtectorTokenProvider<MyApplicationUser>>("nfm-provider")
             .AddEntityFrameworkStores<MyDbContext>()
             .AddDefaultTokenProviders();
 

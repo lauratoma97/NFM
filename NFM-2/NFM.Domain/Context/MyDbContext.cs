@@ -5,7 +5,7 @@ using NFM.Domain.Models;
 
 namespace NFM.Domain.Context
 {
-    public class MyDbContext : IdentityDbContext
+    public class MyDbContext : IdentityDbContext<MyApplicationUser>
     {
         public DbSet<Product> Products { get; set; }
       

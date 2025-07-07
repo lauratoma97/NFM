@@ -14,10 +14,10 @@ namespace NFM.WebApi.Controllers;
 [ApiController]
 public class AuthController : ControllerBase
 {
-    private readonly UserManager<IdentityUser> _userManager;
+    private readonly UserManager<MyApplicationUser> _userManager;
     private readonly JwtOptions _jwtOptions;
 
-    public AuthController(UserManager<IdentityUser> userManager, IOptions<JwtOptions> jwtOptions)
+    public AuthController(UserManager<MyApplicationUser> userManager, IOptions<JwtOptions> jwtOptions)
     {
         _userManager = userManager;
         _jwtOptions = jwtOptions.Value;
@@ -77,19 +77,19 @@ public class AuthController : ControllerBase
     [Authorize(Roles = AppUserRole.Admin)]
     public async Task<IActionResult> CreateUser([FromBody] CreateUserRequest createUserRequest)
     {
-        var identityUser = new IdentityUser
+        var applicationUser = new MyApplicationUser
         {
             UserName = createUserRequest.Username,
             Email = createUserRequest.Username
         };
 
         var identityResult =
-            await _userManager.CreateAsync(identityUser, createUserRequest.Password);
+            await _userManager.CreateAsync(applicationUser, createUserRequest.Password);
 
         if (identityResult.Succeeded)
         {
             identityResult =
-                await _userManager.AddToRolesAsync(identityUser, new[] { AppUserRole.Admin });
+                await _userManager.AddToRolesAsync(applicationUser, new[] { AppUserRole.Admin });
 
             if (identityResult.Succeeded)
             {
@@ -106,19 +106,19 @@ public class AuthController : ControllerBase
     public async Task<IActionResult> CreateOperatorUser(
         [FromBody] CreateUserRequest createUserRequest)
     {
-        var identityUser = new IdentityUser
+        var applicationUser = new MyApplicationUser
         {
             UserName = createUserRequest.Username,
             Email = createUserRequest.Username
         };
 
         var identityResult =
-            await _userManager.CreateAsync(identityUser, createUserRequest.Password);
+            await _userManager.CreateAsync(applicationUser, createUserRequest.Password);
 
         if (identityResult.Succeeded)
         {
             identityResult =
-                await _userManager.AddToRolesAsync(identityUser, new[] { AppUserRole.Operator });
+                await _userManager.AddToRolesAsync(applicationUser, new[] { AppUserRole.Operator });
 
             if (identityResult.Succeeded)
             {
@@ -129,7 +129,7 @@ public class AuthController : ControllerBase
         return BadRequest(identityResult.Errors);
     }
 
-    private string CreateJwtToken(IdentityUser user, List<string> roles)
+    private string CreateJwtToken(MyApplicationUser user, List<string> roles)
     {
         // Create Claims
         var claims = new List<Claim>();

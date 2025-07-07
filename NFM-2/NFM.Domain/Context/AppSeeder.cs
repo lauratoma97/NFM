@@ -5,7 +5,7 @@ using NFM.Domain.Models;
 
 namespace NFM.Domain.Context;
 
-public class AppSeeder(MyDbContext dbContext, UserManager<IdentityUser> userManager)
+public class AppSeeder(MyDbContext dbContext, UserManager<MyApplicationUser> userManager)
 {
     public async Task SeedAsync()
     {
@@ -13,26 +13,31 @@ public class AppSeeder(MyDbContext dbContext, UserManager<IdentityUser> userMana
         {
             var adminUserId = Guid.NewGuid().ToString();
             var operatorUserId = Guid.NewGuid().ToString();
-            var passwordHasher = new PasswordHasher<IdentityUser>();
+            var passwordHasher = new PasswordHasher<MyApplicationUser>();
 
-            var admin = new IdentityUser()
+            var admin = new MyApplicationUser()
                 {
                     Id = adminUserId,
                     Email = "admin@app.com",
                     UserName = "admin",
                     NormalizedEmail = "admin@app.com",
                     NormalizedUserName = "admin",
-                    PasswordHash = passwordHasher.HashPassword(null, "Summer2025!")
-                };
+                    PasswordHash = passwordHasher.HashPassword(null, "Summer2025!"),
 
-            var operatorUser = new IdentityUser()
+                    // custom properties
+                    FullName = "Admin User fullname",
+            };
+
+            var operatorUser = new MyApplicationUser()
             {
                 Id = operatorUserId,
                 Email = "operator@app.com",
                 UserName = "operator",
                 NormalizedEmail = "operator@app.com",
                 NormalizedUserName = "operator",
-                PasswordHash = passwordHasher.HashPassword(null, "Summer2025!")
+                PasswordHash = passwordHasher.HashPassword(null, "Summer2025!"),
+                // custom properties
+                FullName = "Operator User fullname",
             };
 
             await userManager.CreateAsync(admin);
